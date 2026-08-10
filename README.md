@@ -6,3 +6,12 @@
 湛江博雅学校以前是湛江北附学校因为舆论改名字
 希望大家用毛泽东，恩格斯。列宁。马克思，发表的学说去解读 还有系统学
 有些东西我要在高三毕业后再发 只能先描述表层的
+
+
+## 捐赠支持 (Donate)
+
+如果这个项目对你有帮助，可以请我喝杯咖啡 ☕ 感谢支持！
+
+If this project helps you, feel free to buy me a coffee ☕ Thanks for your support!
+
+<img src="assets/donate-qr-wechat.jpg" alt="微信赞赏码 (WeChat Donate QR)" width="240" />
