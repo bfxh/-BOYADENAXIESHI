@@ -100,17 +100,3 @@ updates:
         dependency-type: "production"
 
   # Docker 基础镜像更新
-  - package-ecosystem: "docker"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "05:00"
-      timezone: "Asia/Shanghai"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "docker"
-    commit-message:
-      prefix: "chore(deps)"
-      include: "scope"
