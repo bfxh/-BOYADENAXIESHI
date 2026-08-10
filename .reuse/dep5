@@ -1,0 +1,15 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: -BOYADENAXIESHI
+Upstream-Contact: bfxh
+Source: https://github.com/bfxh/-BOYADENAXIESHI
+
+# 配置/文档/元数据文件——dep5 批量声明
+Files:
+  README.md
+  .gitignore
+  assets/*
+  settings/*
+  .github/*
+  .github/workflows/*
+Copyright: 2026 bfxh
+License: MIT

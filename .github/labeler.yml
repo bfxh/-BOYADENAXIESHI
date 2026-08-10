@@ -1,0 +1,13 @@
+# Pull Request Labeler 配置
+version: 1
+labeler:
+  - label: "docs"
+    files:
+      - "*.md"
+      - "settings/**"
+  - label: "workflow"
+    files:
+      - ".github/**"
+  - label: "assets"
+    files:
+      - "assets/**"
