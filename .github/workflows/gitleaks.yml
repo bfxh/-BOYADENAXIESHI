@@ -1,37 +1,32 @@
----
-# Gitleaks 密钥泄露检测 - 扫描代码中的硬编码密钥和凭证
-name: "Gitleaks Secret Detection"
+name: Gitleaks Secret Scan
 
 on:
   push:
-    branches: [main, master, develop]
+    branches: [main, master, main-v2, develop]
   pull_request:
-    branches: [main, master, develop]
+    branches: [main, master, main-v2, develop]
+  workflow_dispatch:
   schedule:
-    - cron: '0 4 * * 1'
+    - cron: '0 0 * * 0'
 
 permissions:
   contents: read
-  security-events: write
 
 jobs:
   gitleaks:
     name: Gitleaks Scan
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      security-events: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Run Gitleaks CLI
-        run: |
-          curl -sSfL https://github.com/gitleaks/gitleaks/releases/download/v8.24.3/gitleaks_8.24.3_linux_x64.tar.gz -o /tmp/gitleaks.tar.gz
-          tar -xzf /tmp/gitleaks.tar.gz -C /tmp
-          /tmp/gitleaks detect --source . --report-format sarif --report-path gitleaks.sarif --redact || true
-      - name: Upload Gitleaks SARIF report
-        uses: github/codeql-action/upload-sarif@v3
-        if: always()
-        with:
-          sarif_file: gitleaks.sarif
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_ENABLE_COMMENTS: true
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: false
